@@ -37,6 +37,10 @@ The hover Pin It button still might not appear if the following situations are o
 * The image has the `nopin="nopin"` attribute set
 * Your image `src` starts with `data:`
 
+= The Pin It button is offset when hovering over the image =
+
+This is a known issue that affects the Pin It button on all Wordpress sites when a user is logged in. If you logout, or the user isn’t logged into the site, the Pin It button will appear in the correct spot. This will be fixed soon without any updates to the plugin needed.
+
 = Where can I go for more help? =
 
 You can write to us at our help center: http://help.pinterest.com
