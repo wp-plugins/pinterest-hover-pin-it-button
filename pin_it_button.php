@@ -3,7 +3,7 @@
  * Plugin Name: Pin It Button for Pinterest
  * Plugin URI: http://about.pinterest.com/goodies/
  * Description: Add a hover Pin It button for Pinterest to your images
- * Version: 0.9
+ * Version: 1.0
  * Author: Pinterest
  * Author URI: http://about.pinterest.com/goodies/
  */
