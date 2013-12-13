@@ -1,9 +1,9 @@
 === Pinterest Hover Pin It Button ===
 Contributors: billr.pinterest
-Tags: social, images, plugin
+Tags: social, images, plugin, pinterest
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 0.9
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,7 @@ You can write to us at our help center: http://help.pinterest.com
 * Added red and white Pin It button colors (rectangular only)
 * Added support for Japanese Pin It buttons (rectangular only)
 * Added support for large and small Pin It buttons (rectangular only)
+* Added async flag to pinit.js script line
 
 = 0.9 =
 * Initial version
