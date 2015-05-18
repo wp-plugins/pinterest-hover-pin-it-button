@@ -96,6 +96,7 @@ if(!function_exists('pin_it_button_options')) {
 		if ( !current_user_can( 'manage_options' ) )  {
 			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 		}
+
 		$enabled_option = 'pin_it_button_enabled';
 		$image_hover_option = 'pin_it_button_hover';
 		$submitted_option = 'pin_it_button_submitted';
@@ -103,6 +104,7 @@ if(!function_exists('pin_it_button_options')) {
 		$size_option = 'pin_it_button_size';
 		$lang_option = 'pin_it_button_lang';
 		$shape_option = 'pin_it_button_shape';
+		$csrf_token = 'csrf_token_submit';
 		
 		$enabled_val = get_option($enabled_option);
 		$image_hover_val = get_option($image_hover_option);
@@ -128,6 +130,15 @@ if(!function_exists('pin_it_button_options')) {
 		$image_hover_checked = "";
 				
 		if( isset($_POST[ $submitted_option] ) && $_POST[ $submitted_option] == 'Y') {
+
+			// check for CSRF token
+			if ( !isset($_POST[ $csrf_token]) ) {
+				wp_die("<br><br>CSRF token not set");
+			}
+			if ( !wp_verify_nonce($_POST[ $csrf_token], 'csrf-token-nonce') ) {
+				wp_die("<br><br>CSRF token invalid!");
+			}
+
 			// check and update variables
 			$color_val = $_POST[ $color_option ];
 			$lang_val = $_POST[ $lang_option ];
@@ -207,6 +218,7 @@ if(!function_exists('pin_it_button_options')) {
 	    
 	    <form name="form1" method="post" action="">
 	    <input type="hidden" name="<?php echo $submitted_option; ?>" value="Y">
+	    <input type="hidden" name="<?php echo $csrf_token; ?>" value="<?php echo wp_create_nonce('csrf-token-nonce'); ?>" />
 	    <p><input type="checkbox" name=<?php echo '"' . $image_hover_option . '" ' . $image_hover_checked; ?> value="Y"> Enable the Pin It hover button over images</p>
 	    <p>Size:
 	    <select name="<?php echo $size_option; ?>">
